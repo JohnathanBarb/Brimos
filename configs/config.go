@@ -29,7 +29,7 @@ func init() {
 
 func Load() error {
 	viper.SetConfigName("config")
-	viper.SetConfigName("toml")
+	viper.SetConfigType("toml")
 	viper.AddConfigPath(".")
 
 	err := viper.ReadInConfig()

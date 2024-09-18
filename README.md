@@ -1,2 +1,2 @@
 # brimos
-Brimos - Book Review Platform
+Brimos - ToDo Platform

@@ -9,7 +9,7 @@ func Get(id int64) (todo Todo, err error) {
 	}
 	defer conn.Close()
 
-	stmt := `SELECT * FROM todos WHERE id = %1`
+	stmt := `SELECT * FROM todo WHERE id = $1`
 	row := conn.QueryRow(stmt, id)
 
 	err = row.Scan(&todo.ID, &todo.Title, &todo.Description, &todo.Done)

@@ -2,8 +2,8 @@
 port = "9000"
 
 [database]
-host = "localhost"
-port = "5431"
-user = "user_todo"
-pass = "1122"
-name = "api_todo"
+host = "brimos-db"
+port = "5432"
+user = "postgres"
+pass = "password"
+name = "brimos"

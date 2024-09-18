@@ -9,8 +9,8 @@ func Update(id int64, todo Todo) (int64, error) {
 	}
 	defer conn.Close()
 
-	stmt := `UPDATE todos SET title=%1, description=%2, done=%3 WHERE id=%4`
-	res, err := conn.Exec(stmt, todo.Title, todo.Description, todo.Done, id)
+	stmt := `UPDATE todo SET title=$2, description=$3, done=$4 WHERE id=$1`
+	res, err := conn.Exec(stmt, id, todo.Title, todo.Description, todo.Done)
 	if err != nil {
 		return 0, err
 	}

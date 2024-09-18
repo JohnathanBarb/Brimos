@@ -23,8 +23,8 @@ type APIConfig struct {
 
 func init() {
 	viper.SetDefault("api.port", "9000")
-	viper.SetDefault("database.host", "localhost")
-	viper.SetDefault("database.port", "5431")
+	viper.SetDefault("database.host", "brimos-db")
+	viper.SetDefault("database.port", "5432")
 }
 
 func Load() error {

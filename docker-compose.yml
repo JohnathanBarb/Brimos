@@ -1,0 +1,31 @@
+services:
+  server:
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    ports:
+      - "9000:9000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    image: postgres
+    restart: always
+    hostname: brimos-db
+    volumes:
+      - "./scripts/init_db.sql:/docker-entrypoint-initdb.d/init_db.sql"
+    environment:
+      POSTGRES_PASSWORD: "password"
+      POSTGRES_DB: brimos
+    ports:
+      - "5431:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+
+networks:
+  default:
+    name: brimos-network

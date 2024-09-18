@@ -9,7 +9,7 @@ func Delete(id int64) (int64, error) {
 	}
 	defer conn.Close()
 
-	stmt := `DELETE FROM todos WHERE id=%1`
+	stmt := `DELETE FROM todo WHERE id=$1`
 	res, err := conn.Exec(stmt, id)
 	if err != nil {
 		return 0, err
